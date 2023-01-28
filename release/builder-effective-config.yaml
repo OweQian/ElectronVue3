@@ -1,0 +1,22 @@
+directories:
+  output: /Users/qianwang/wangqian/work/electron/release
+  buildResources: build
+  app: /Users/qianwang/wangqian/work/electron/dist
+files:
+  - filter:
+      - '**'
+extends: null
+productName: Electron
+appId: com.xxx.desktop
+asar: true
+nsis:
+  oneClick: true
+  perMachine: true
+  allowToChangeInstallationDirectory: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: ElectronDesktop
+publish:
+  - provider: generic
+    url: http://localhost:5500/
+electronVersion: 22.0.3
