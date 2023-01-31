@@ -1,10 +1,10 @@
 <template>
-  <div>WindowSetting</div>
+  <div>AccountSetting</div>
 </template>
 
 <script>
 export default {
-  name: "WindowSetting.vue"
+  name: "AccountSetting.vue"
 }
 </script>
 
