@@ -25,9 +25,9 @@ class BuildObj {
     localPkgJson.devDependencies = {
       electron: electronConfig,
     };
-    localPkgJson.dependencies['better-sqlite3'] = '*';
-    localPkgJson.dependencies['bindings'] = '*';
-    localPkgJson.dependencies['knex'] = '*';
+    localPkgJson.devDependencies['better-sqlite3'] = '*';
+    localPkgJson.devDependencies['bindings'] = '*';
+    localPkgJson.devDependencies['knex'] = '*';
     const tarJsonPath = path.join(process.cwd(), 'dist', 'package.json');
     fs.writeFileSync(tarJsonPath, JSON.stringify(localPkgJson));
     fs.mkdirSync(path.join(process.cwd(), 'dist/node_modules'));

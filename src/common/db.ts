@@ -10,6 +10,7 @@ if (!dbInstance) {
   dbPath = path.join(dbPath, 'Electron');
   const dbIsExist = fs.existsSync(dbPath);
   if (!dbIsExist) {
+    console.log(process.execPath)
     const resourceDbPath = path.join(process.execPath, '../resources/db.db');
     fs.copyFileSync(resourceDbPath, dbPath);
   }
