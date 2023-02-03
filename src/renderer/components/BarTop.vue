@@ -19,7 +19,36 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted, ref, onUnmounted } from "vue";
+import { ipcRenderer } from "electron";
 defineProps<{ title?: string }>();
+let isMaximized = ref(false);
+let closeWindow = () => {
+  ipcRenderer.invoke("closeWindow");
+};
+let maxmizeMainWin = () => {
+  ipcRenderer.invoke("maxmizeWindow");
+};
+let minimizeMainWindow = () => {
+  ipcRenderer.invoke("minimizeWindow");
+};
+let unmaximizeMainWindow = () => {
+  ipcRenderer.invoke("unmaximizeWindow");
+};
+let winMaximizeEvent = () => {
+  isMaximized.value = true;
+};
+let winUnmaximizeEvent = () => {
+  isMaximized.value = false;
+};
+onMounted(() => {
+  ipcRenderer.on("windowMaximized", winMaximizeEvent);
+  ipcRenderer.on("windowUnmaximized", winUnmaximizeEvent);
+});
+onUnmounted(() => {
+  ipcRenderer.off("windowMaximized", winMaximizeEvent);
+  ipcRenderer.off("windowUnmaximized", winUnmaximizeEvent);
+});
 </script>
 
 <style lang="scss" scoped>

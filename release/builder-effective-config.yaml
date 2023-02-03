@@ -15,8 +15,11 @@ nsis:
   allowToChangeInstallationDirectory: false
   createDesktopShortcut: true
   createStartMenuShortcut: true
-  shortcutName: ElectronDesktop
+  shortcutName: Electron
 publish:
   - provider: generic
     url: http://localhost:5500/
+extraResources:
+  - from: ./src/common/db.db
+    to: ./
 electronVersion: 22.0.3

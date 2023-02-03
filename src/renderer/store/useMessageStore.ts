@@ -17,6 +17,7 @@ export const useMessageStore = defineStore('message', () => {
       model.fromName = model.isInMsg ? chat.fromName : "我";
       model.avatar = chat.avatar;
       model.chatId = chat.id;
+      console.log(model);
       result.push(model);
     }
     data.value = result;
