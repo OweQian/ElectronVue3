@@ -1,13 +1,5 @@
+<script setup lang="ts"></script>
 <template>
-  <div>AccountSetting</div>
+  <div>账号设置</div>
 </template>
-
-<script>
-export default {
-  name: "AccountSetting.vue"
-}
-</script>
-
-<style scoped>
-
-</style>
+<style scoped lang="scss"></style>

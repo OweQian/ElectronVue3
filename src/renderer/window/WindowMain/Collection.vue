@@ -1,13 +1,12 @@
 <template>
-  <div>Collection</div>
+  <div>收藏</div>
+  <div class="CollectionBoard"><BarTop /></div>
 </template>
-
-<script>
-export default {
-  name: "Collection.vue"
-}
+<script setup lang="ts">
+import BarTop from '../../components/BarTop.vue';
 </script>
-
-<style scoped>
-
+<style scoped lang="scss">
+.CollectionBoard {
+  flex: 1;
+}
 </style>
