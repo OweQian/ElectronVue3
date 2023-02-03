@@ -1,20 +1,21 @@
-<script setup lang="ts">
-import { ipcRenderer } from "electron";
-import { onMounted } from "vue";
+<script lang="ts" setup>
+import {ipcRenderer} from "electron";
+import {onMounted} from "vue";
 import BarLeft from "../components/BarLeft.vue";
+
 onMounted(() => {
   ipcRenderer.invoke("showWindow");
 });
 </script>
 
 <template>
-  <BarLeft />
+  <BarLeft/>
   <div class="pageBox">
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .pageBox {
   flex: 1;
   height: 100%;

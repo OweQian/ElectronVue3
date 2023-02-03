@@ -1,4 +1,4 @@
-import { protocol } from 'electron';
+import {protocol} from 'electron';
 import path from 'path';
 import fs from 'fs';
 
@@ -17,28 +17,6 @@ protocol.registerSchemesAsPrivileged([{
 }]);
 
 export class CustomScheme {
-  // 根据文件扩展名获取mime-type
-  private static getMimeType(extension: string) {
-    let mineType = '';
-    switch (extension) {
-      case '.js':
-        mineType = 'text/javascript';
-      break;
-      case '.html':
-        mineType = 'text/html';
-      break;
-      case '.css':
-        mineType = 'text/css';
-      break;
-      case '.svg':
-        mineType = 'image/svg+xml';
-      break;
-      case '.json':
-        mineType = 'application/json';
-      break;
-    }
-    return mineType;
-  };
   // 注册自定义app协议
   static registerScheme() {
     protocol.registerStreamProtocol('app', (request, callback) => {
@@ -57,5 +35,28 @@ export class CustomScheme {
         data: fs.createReadStream(tarFile),
       })
     });
+  };
+
+  // 根据文件扩展名获取mime-type
+  private static getMimeType(extension: string) {
+    let mineType = '';
+    switch (extension) {
+      case '.js':
+        mineType = 'text/javascript';
+        break;
+      case '.html':
+        mineType = 'text/html';
+        break;
+      case '.css':
+        mineType = 'text/css';
+        break;
+      case '.svg':
+        mineType = 'image/svg+xml';
+        break;
+      case '.json':
+        mineType = 'application/json';
+        break;
+    }
+    return mineType;
   };
 }

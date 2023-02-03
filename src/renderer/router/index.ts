@@ -9,7 +9,7 @@ const routes = [{
   component: () => import('../window/WindowMain.vue'),
   children: [{
     path: 'Chat',
-    component: () => import('../window/WindowMain/Chat.vue'),
+    component: () => import('../window/WindowMain/chat/index.vue'),
   }, {
     path: 'Contact',
     component: () => import('../window/WindowMain/Contact.vue'),

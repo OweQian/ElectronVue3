@@ -5,12 +5,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "rebuild": "electron-rebuild -f -w better-sqlite3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
+    "better-sqlite3": "^8.0.1",
     "electron": "^22.0.3",
     "electron-builder": "^23.6.0",
+    "electron-rebuild": "^3.2.9",
+    "pinia": "^2.0.30",
     "sass": "^1.57.1",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
