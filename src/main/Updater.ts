@@ -1,0 +1,14 @@
+import { dialog } from 'electron';
+import { autoUpdater} from 'elec';
+
+export class Updater {
+  static check() {
+    autoUpdater.checkForUpdates();
+    autoUpdater.on('update-downloaded', async () => {
+      await dialog.showMessageBox({
+        message: '有可用的升级',
+      });
+      autoUpdater.quitAndInstall();
+    });
+  }
+}

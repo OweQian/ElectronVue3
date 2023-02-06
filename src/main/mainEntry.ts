@@ -1,5 +1,6 @@
 import {app, BrowserWindow} from 'electron';
 import {CustomScheme} from "./CustomScheme";
+import { Updater } from "./Updater";
 import {CommonWindowEvent} from "./CommonWindowEvent";
 
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
@@ -9,6 +10,8 @@ app.on("browser-window-created", (e, win) => {
 });
 app.whenReady().then(() => {
   let config = {
+    frame: false,
+    show: false,
     webPreferences: {
       nodeIntegration: true,
       webSecurity: false,
@@ -17,6 +20,7 @@ app.whenReady().then(() => {
       webviewTag: true,
       spellcheck: false,
       disableHtmlFullscreenWindowResize: true,
+      nativeWindowOpen: true,
     },
   };
   mainWindow = new BrowserWindow(config);
@@ -26,6 +30,7 @@ app.whenReady().then(() => {
   } else {
     CustomScheme.registerScheme();
     mainWindow.loadURL('app"//index.html');
+    // Updater.check();
   }
   CommonWindowEvent.listen();
 });
