@@ -1,5 +1,5 @@
 import { dialog } from 'electron';
-import { autoUpdater} from 'elec';
+import { autoUpdater} from 'electron-updater';
 
 export class Updater {
   static check() {
